@@ -150,8 +150,8 @@ static void PatchCrcExample(string[] args)
     else
         File.WriteAllText(args[1] + ".patched", AddressablesCatalogFileParser.ToJson(ccd));
 
-    File.Move(args[1], args[1] + ".old");
-    File.Move(args[1] + ".patched", args[1]);
+    File.Move(args[1], args[1] + ".old", true);
+    File.Move(args[1] + ".patched", args[1], true);
 }
 
 if (args.Length < 1)

@@ -37,15 +37,15 @@ namespace AddressablesTools.Classes
             Hash = (string)jsonObj["m_Hash"];
             Crc = (uint)jsonObj["m_Crc"];
             Timeout = (int)jsonObj["m_Timeout"];
-            ChunkedTransfer = (bool)jsonObj["m_ChunkedTransfer"];
+            ChunkedTransfer = (bool)(jsonObj["m_ChunkedTransfer"] ?? false);
             RedirectLimit = (int)jsonObj["m_RedirectLimit"];
             RetryCount = (int)jsonObj["m_RetryCount"];
             BundleName = (string)jsonObj["m_BundleName"];
-            AssetLoadMode = (AssetLoadMode)(int)jsonObj["m_AssetLoadMode"];
+            AssetLoadMode = (AssetLoadMode)(int)(jsonObj["m_AssetLoadMode"] ?? 0);
             BundleSize = (long)jsonObj["m_BundleSize"];
-            UseCrcForCachedBundle = (bool)jsonObj["m_UseCrcForCachedBundles"]; // not a typo
-            UseUnityWebRequestForLocalBundles = (bool)jsonObj["m_UseUWRForLocalBundles"];
-            ClearOtherCachedVersionsWhenLoaded = (bool)jsonObj["m_ClearOtherCachedVersionsWhenLoaded"];
+            UseCrcForCachedBundle = (bool)(jsonObj["m_UseCrcForCachedBundles"] ?? false); // not a typo
+            UseUnityWebRequestForLocalBundles = (bool)(jsonObj["m_UseUWRForLocalBundles"] ?? false);
+            ClearOtherCachedVersionsWhenLoaded = (bool)(jsonObj["m_ClearOtherCachedVersionsWhenLoaded"] ?? false);
         }
 
         internal void Read(CatalogBinaryReader reader, uint offset)
